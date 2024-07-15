@@ -1,0 +1,10 @@
+const express=require('express')
+const router=express.Router()
+const {registerController, authController, loginController, verifyOtpController, updateUserProfile}=require('../controller/User')
+const protect = require('../middleware/authMiddleware')
+router.post("/register",registerController)
+router.post('/get-user',protect,authController)
+router.post('/login',loginController)
+router.post('/verifyotp',verifyOtpController)
+router.put('/updateprofile',protect,updateUserProfile)
+module.exports=router;

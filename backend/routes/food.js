@@ -1,0 +1,11 @@
+const express=require('express')
+const router=express.Router()
+const {createFood,getAllFood, getFoodById, getNewFood, getProductsFromDistinctCategory, getTopRating}=require('../controller/food')
+const protect = require('../middleware/authMiddleware')
+router.post("/addfood",createFood)
+router.get("/getfood",getAllFood)
+router.get("/getnewfood",getNewFood)
+router.get("/getTopRated",getTopRating)
+router.get("/specialfood",getProductsFromDistinctCategory)
+router.get("/getfood/:id",getFoodById)
+module.exports=router;

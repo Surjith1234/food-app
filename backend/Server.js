@@ -2,7 +2,13 @@ const express=require('express')
 const app=express()
 const cors=require('cors')
 const mongoose=require('mongoose')
-app.use(express.json());
+app.use(
+  cors({
+    origin: ['https://deploy-mern-1whq.versal.app'],
+    methods: ['POST', 'GET'],
+    credentials: true,
+  })
+);
 app.use(express.urlencoded({ extended: true }));
 app.get('/',(req, res) => {
   res.send('Hello World');

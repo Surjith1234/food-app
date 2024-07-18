@@ -4,6 +4,9 @@ const cors=require('cors')
 const mongoose=require('mongoose')
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.get('/',(req, res) => {
+  res.send('Hello World');
+});
 const connect=async()=>{
     try {
         await mongoose.connect('mongodb+srv://surjith:surjith2003@cluster0.pw1ezze.mongodb.net/food?retryWrites=true&w=majority&appName=Cluster0')
